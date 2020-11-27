@@ -48,7 +48,6 @@ public class DataService {
         Calendar cal1 = new GregorianCalendar();
         DateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         cal1.setTimeInMillis((long)(1000 * 60 * 60 * 24 * date1));
-        System.out.println(cal1.getTime());
         return sdf.format(cal1.getTime());
     }
 }

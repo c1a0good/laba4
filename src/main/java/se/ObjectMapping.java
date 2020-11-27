@@ -20,6 +20,7 @@ public class ObjectMapping implements RowMapper<MyObject> {
             object.setEndDate(resultSet.getString("endDate"));
             object.setStartDate(resultSet.getString("startDate"));
             object.setSalary(resultSet.getDouble("salary"));
+            object.setEarnings();
             return object;
         }
 }

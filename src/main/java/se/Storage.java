@@ -15,9 +15,8 @@ public class Storage {
     }
 
     public static MyObject readById(Integer id) {
-        String sql = "SELECT \"employeeID\", department, \"lastName\", \"firstName\", \"middleName\", \"startDate\", \"endDate\", salary "
-                + "FROM public.\"myObject\" "
-                + "WHERE id = ?";
+        String sql = "SELECT * FROM public.\"myObject\" "
+                + "WHERE id = " + id ;
         return (jdbcTemplate.query(sql, new ObjectMapping()).get(0));
     }
 
@@ -36,7 +35,7 @@ public class Storage {
     public static void update(MyObject object) {
         String sql = "UPDATE public.\"myObject\" SET "
                 + "\"employeeID\" = ?, department = ?, \"lastName\" = ?, \"firstName\" = ?, \"middleName\" = ?, \"startDate\" = ?, \"endDate\" = ?, salary = ? "
-                + "WHERE id = ?";
+                + "WHERE id = " + object.getId();
         jdbcTemplate.update(sql, object.getEmployeeID(),
                 object.getDepartment(),
                 object.getLastName(), object.getFirstName(), object.getMiddleName(),
@@ -45,8 +44,8 @@ public class Storage {
     }
     public static void delete(Integer id) throws SQLException, ClassNotFoundException {
         String sql = "DELETE FROM public.\"myObject\" "
-                + "WHERE id = ?";
-        jdbcTemplate.update(sql, id);
+                + "WHERE id = " + id;
+        jdbcTemplate.update(sql);
     }
 }
 

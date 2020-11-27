@@ -67,7 +67,6 @@ public class MyObject {
 
     public void setStartDate(String startDate) {
         this.startDate = startDate;
-        setEarnings();
     }
 
     public String getEndDate() {
@@ -76,7 +75,6 @@ public class MyObject {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
-        setEarnings();
     }
 
     public Double getSalary() {
@@ -85,7 +83,6 @@ public class MyObject {
 
     public void setSalary(Double salary) {
         this.salary = salary;
-        setEarnings();
     }
 
     public Double getEarnings() {
@@ -93,10 +90,7 @@ public class MyObject {
     }
 
     public void setEarnings() {
-        if( !(this.salary == null) && !(this.startDate == null) && !(this.endDate == null)) {
-            this.earnings = this.salary * DataService.subDate(this.startDate, this.endDate) * percent;
-        }
-        this.earnings = 0.0;
+        this.earnings = this.salary * DataService.subDate(this.startDate, this.endDate) * percent;
     }
 
     public Double getPercent() {
